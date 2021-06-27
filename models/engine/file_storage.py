@@ -4,6 +4,8 @@ Create of class FileStorage that cereals and decereals JSON
 """
 import json
 
+all_classes = {"Amenity": Amenity, "BaseModel": BaseModel, "City": City,
+        "Place": Place, "Review": Review, "State": State, "User": User}
 
 class FileStorage:
     """
@@ -29,11 +31,16 @@ class FileStorage:
                 new_dic[key] = value
             json.dump(self.__objects, myFile)
 
-
     def reload(self):
         try:
             filename = self.__file_path
             with open(filename, mode='r', encoding='UTF-8') as myFile:
-                json.load(myFile)
+                jason_file = json.load(myFile)
+                """
+                creates objects and searches through every class for
+                the correct object class to populate key/val
+                """
+            for key in jason_file:
+                self.__objects[key] = all_classes[jason_file[key]["__class__"]](**jason_file[key])
         except:
             pass

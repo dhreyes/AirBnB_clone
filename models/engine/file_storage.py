@@ -36,10 +36,13 @@ class FileStorage:
         new_dic = {}
         with open(filename, mode='w', encoding='UTF-8') as myFile:
             for key, value in self.__objects.items():
-                new_dic[key] = value
-            json.dump(self.__objects, myFile)
+                new_dic[key] = value.to_dict()
+            json.dump(new_dic, myFile)
 
     def reload(self):
+        """
+        Decerealizes JSON to objects
+        """
         try:
             filename = self.__file_path
             with open(filename, mode='r', encoding='UTF-8') as myFile:

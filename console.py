@@ -26,8 +26,25 @@ class HBNBCommand(cmd.Cmd):
         else:
             print("** class doesn't exist **")
 
+    @staticmethod
+    def key_validator(arg):
+        """ validates key for show method """
+        pass
+
     def do_show(self, arg):
         """ Print string representation of instance, given id """
+        pass
+
+    def do_destroy(self, arg):
+        """ Delete instanced based on class name and id """
+        pass
+
+    def do_all(self, arg):
+        """ Prints all string representation of all instances """
+        pass
+
+    def do_update(self, arg):
+        """ Updates an instanced based on class name and id """
         pass
 
     def do_quit(self, arg):

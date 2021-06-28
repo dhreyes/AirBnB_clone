@@ -9,7 +9,7 @@ import cmd
 class HBNBCommand(cmd.Cmd):
     """ This the console """
     prompt = "(hbnb) "
-    intro = "Welcome to our HBnB console!"
+    intro = "Welcome to our HBnB console! Type ? or help for commands"
 
     def do_quit(self, arg):
         """ Quit command to exit the program """

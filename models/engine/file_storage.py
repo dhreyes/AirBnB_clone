@@ -3,17 +3,8 @@
 Create of class FileStorage that cereals and decereals JSON
 """
 import json
-import os
-from models.base_model import BaseModel
-from models.user import User
-from models.state import State
-from models.city import City
-from models.amenity import Amenity
-from models.place import Place
-from models.review import Review
-
-all_classes = {"Amenity": Amenity, "BaseModel": BaseModel, "City": City,
-        "Place": Place, "Review": Review, "State": State, "User": User}
+#import os
+from .. import all_classes
 
 class FileStorage:
     """

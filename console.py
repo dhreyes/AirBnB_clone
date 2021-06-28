@@ -29,6 +29,7 @@ class HBNBCommand(cmd.Cmd):
     @staticmethod
     def key_validator(arg):
         """ validates key for show method """
+        key = None
         argv = arg.split()
         argc = len(argv)
         if not arg:
@@ -37,14 +38,23 @@ class HBNBCommand(cmd.Cmd):
             print("** class doesn't exist **")
         elif argc < 2:
             print("** instance id missing **")
+        else:
+            argv[1] = argv[1].strip('",')
+            key = '.'.join(argv[0:2])
+        return key
 
     def do_show(self, arg):
         """ Print string representation of instance, given id """
-        pass
+        key = HBNBCommand.key_validator(arg)
+        if key:
+            print(storage.all()[key])
 
     def do_destroy(self, arg):
         """ Delete instanced based on class name and id """
-        pass
+        key = HBNBCommand.key_validator(arg)
+        if key:
+            del storage.all()[key]
+            storage.save()
 
     def do_all(self, arg):
         """ Prints all string representation of all instances """

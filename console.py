@@ -19,17 +19,24 @@ class HBNBCommand(cmd.Cmd):
         if not arg:
             print("** class name missing **")
         elif arg in all_classes:
-            new_instance = all_classes[arg]()
-            storage.new(new_instance)
+            myModel = all_classes[arg]()
+            storage.new(myModel)
             storage.save()
-            print(new_instance.id)
+            print(myModel.id)
         else:
             print("** class doesn't exist **")
 
     @staticmethod
     def key_validator(arg):
         """ validates key for show method """
-        pass
+        argv = arg.split()
+        argc = len(argv)
+        if not arg:
+            print("** class name missing **")
+        elif argv[0] not in all_classes:
+            print("** class doesn't exist **")
+        elif argc < 2:
+            print("** instance id missing **")
 
     def do_show(self, arg):
         """ Print string representation of instance, given id """

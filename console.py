@@ -30,6 +30,7 @@ class HBNBCommand(cmd.Cmd):
     def key_validator(arg):
         """ validates key for show method """
         key = None
+        change_key = None
         argv = arg.split()
         argc = len(argv)
         if not arg:
@@ -40,7 +41,11 @@ class HBNBCommand(cmd.Cmd):
             print("** instance id missing **")
         else:
             argv[1] = argv[1].strip('",')
-            key = '.'.join(argv[0:2])
+            change_key = '.'.join(argv[0:2])
+            if change_key not in storage.all():
+                print("** no instance found **")
+            else:
+                key = change_key
         return key
 
     def do_show(self, arg):
@@ -58,17 +63,19 @@ class HBNBCommand(cmd.Cmd):
 
     def do_all(self, arg):
         """ Prints all string representation of all instances """
-        pass
+        if not arg:
+            for i in storage.all().values():
+                print (i)
 
     def do_update(self, arg):
         """ Updates an instanced based on class name and id """
         pass
 
-    def do_quit(self, arg):
+    def do_quit(self):
         """ Quit command to exit the program """
         return True
 
-    def do_EOF(self, arg):
+    def do_EOF(self):
         """ End Of File condition to terminate program """
         print()
         return True

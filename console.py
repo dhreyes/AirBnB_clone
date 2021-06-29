@@ -69,18 +69,26 @@ class HBNBCommand(cmd.Cmd):
 
     def do_update(self, arg):
         """ Updates an instanced based on class name and id """
-        pass
+        key = HBNBCommand.key_validator(arg)
+        print("This is current key value: <{}>".format(key))
+        if key:
+            argv = arg.split()
+            argc = len(argv)
+            if argc < 3:
+                print("** attribute name missing **")
+            elif argc < 4:
+                print("** value missing **")
 
-    def do_quit(self):
+    def do_quit(self, arg):
         """ Quit command to exit the program """
         return True
 
-    def do_EOF(self):
+    def do_EOF(self, arg):
         """ End Of File condition to terminate program """
         print()
         return True
 
-    def emptyline(self):
+    def emptyline(self, arg):
         """ Allows prompt to not be repeated constantly """
         if self.lastcmd:
             self.lastcmd = ""

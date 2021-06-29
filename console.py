@@ -70,7 +70,6 @@ class HBNBCommand(cmd.Cmd):
     def do_update(self, arg):
         """ Updates an instanced based on class name and id """
         key = HBNBCommand.key_validator(arg)
-        print("This is current key value: <{}>".format(key))
         if key:
             argv = arg.split()
             argc = len(argv)

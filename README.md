@@ -161,7 +161,8 @@ List available commands with "help" or detailed help with "help cmd".
  Updates an instanced based on class name and id 
 (hbnb) quit
 vagrant@vagrant-ubuntu-trusty-64:~/Projects/AirBnB_clone$
-``
+```
+
 ## Bugs
 None reported.
 

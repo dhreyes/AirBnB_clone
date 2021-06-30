@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
 """
 Command line interpreter for AirBnB console
 Interface to interact with programs

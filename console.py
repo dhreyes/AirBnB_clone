@@ -4,8 +4,9 @@ Command line interpreter for AirBnB console
 Interface to interact with programs
 """
 import cmd
-from models import all_classes
+from models.engine.file_storage import all_classes
 from models import storage
+
 
 class HBNBCommand(cmd.Cmd):
     """ This the console """

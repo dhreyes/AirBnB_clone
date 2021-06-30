@@ -3,8 +3,16 @@
 Create of class FileStorage that cereals and decereals JSON
 """
 import json
-#import os
-from .. import all_classes
+from models.base_model import BaseModel
+from models.amenity import Amenity
+from models.city import City
+from models.state import State
+from models.place import Place
+from models.review import Review
+from models.user import User
+all_classes = {"Amenity": Amenity, "BaseModel": BaseModel, "City": City,
+               "Place": Place, "Review": Review, "State": State, "User": User}
+
 
 class FileStorage:
     """
@@ -43,6 +51,7 @@ class FileStorage:
                 the correct object class to populate key/val
                 """
             for key in jason_file:
-                self.__objects[key] = all_classes[jason_file[key]["__class__"]](**jason_file[key])
+                self.__objects[key] = all_classes[
+                        jason_file[key]["__class__"]](**jason_file[key])
         except:
             pass

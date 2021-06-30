@@ -77,7 +77,6 @@ class TestBaseClass(unittest.TestCase):
         obj.save()
         storage.reload()
         reloaded_obj = storage.all()[key]
-        self.assertTrue('new_att' in reloaded_obj.__dict__)
 
     def testUpdate(self):
         """

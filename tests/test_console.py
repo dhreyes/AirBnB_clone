@@ -15,5 +15,3 @@ class TestConsole(unittest.TestCase):
                                         'tests/test_console.py'])
         self.assertEqual(result.total_errors, 0,
                          "Found code style errors (and warnings).")
-
-

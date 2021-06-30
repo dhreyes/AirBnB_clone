@@ -119,6 +119,33 @@ The *update* command allows you to modify data within the instance attributes
 (hbnb) show User 041a4c45-355c-4e75-ae44-ecfabbaa8727
 [User] (041a4c45-355c-4e75-ae44-ecfabbaa8727) {'updated_at': datetime.datetime(2021, 6, 30, 13, 48, 24, 61743), 'id': '041a4c45-355c-4e75-ae44-ecfabbaa8727', 'created_at': datetime.datetime(2021, 6, 30, 13, 47, 13, 957226), 'name': 'Tim'}
 
+The *help* or *?* command prints out a list of commands on which helpful information can be summoned.
+./console.py
+Welcome to our HBnB console! Type ? or help for commands
+(hbnb) help
+
+Documented commands (type help <topic>):
+========================================
+EOF  all  create  destroy  help  quit  show  update
+
+(hbnb) help create
+ Create a new instance of BaseModel, save to JSON file, print id
+(hbnb) help all
+ Prints all string representation of all instances 
+(hbnb) help EOF
+ End Of File condition to terminate program 
+(hbnb) help destroy
+ Delete instanced based on class name and id 
+(hbnb) help help
+List available commands with "help" or detailed help with "help cmd".
+(hbnb) help quit
+ Quit command to exit the program 
+(hbnb) help show
+ Print string representation of instance, given id 
+(hbnb) help update
+ Updates an instanced based on class name and id 
+(hbnb) quit
+vagrant@vagrant-ubuntu-trusty-64:~/Projects/AirBnB_clone$
 
 ## Bugs
 None reported.

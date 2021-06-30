@@ -82,7 +82,43 @@ Classes that inherit from Base Model:
 [/test_models/test_base_model.py](/tests/test_models/test_base_model.py) - unit test cases
 
 ## Usage
-placeholder for usage examples
+
+To run the console:
+AirBnB_clone$ ./console.py
+(hbnb)
+(hbnb) EOF
+
+The console handles empty arguments by issuing a new prompt and waiting for input.
+*EOF* and *quit* are both commands that exit the console.
+
+The *all* command prints datetime stamped string representations of every instance
+(hbnb) all
+[User] (188bb8a5-1530-4916-ba3e-a202b2c698ae) {&apos;created_at&apos;:
+datetime.datetime(2021, 6, 30, 13, 24, 43, 757395), &apos;updated_at&apos;:
+datetime.datetime(2021, 6, 30, 13, 24, 43, 757428), &apos;id&apos;: &apos;
+188bb8a5-1530-4916-ba3e-a202b2c698ae&apos;}
+
+The *create* command starts a new instance of User.
+(hbnb) create User
+d0d71a7c-75cf-44d6-8099-4faca5ebdea7
+(hbnb)
+
+The *destroy* command undos the above process. It takes as argument name & id
+(hbnb) create User
+26aeb04f-7804-42aa-9022-96340d33e6f0
+(hbnb) show User 26aeb04f-7804-42aa-9022-96340d33e6f0
+[User] (26aeb04f-7804-42aa-9022-96340d33e6f0) {&apos;created_at&apos;: datetime.datetime(2021, 6, 30, 13, 42, 57, 34807), &apos;updated_at&apos;: datetime.datetime(2021, 6, 30, 13, 42, 57, 34838), &apos;id&apos;: &apos;26aeb04f-7804-42aa-9022-96340d33e6f0&apos;}
+(hbnb) destroy User 26aeb04f-7804-42aa-9022-96340d33e6f0
+(hbnb) show User 26aeb04f-7804-42aa-9022-96340d33e6f0
+** no instance found **
+
+The *update* command allows you to modify data within the instance attributes
+(hbnb) create User
+041a4c45-355c-4e75-ae44-ecfabbaa8727
+(hbnb) update User 041a4c45-355c-4e75-ae44-ecfabbaa8727 name Tim
+(hbnb) show User 041a4c45-355c-4e75-ae44-ecfabbaa8727
+[User] (041a4c45-355c-4e75-ae44-ecfabbaa8727) {'updated_at': datetime.datetime(2021, 6, 30, 13, 48, 24, 61743), 'id': '041a4c45-355c-4e75-ae44-ecfabbaa8727', 'created_at': datetime.datetime(2021, 6, 30, 13, 47, 13, 957226), 'name': 'Tim'}
+
 
 ## Bugs
 None reported.

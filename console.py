@@ -88,7 +88,8 @@ class HBNBCommand(cmd.Cmd):
                 finder_flag = None
                 for key in storage.all().keys():
                     update_model = storage.all()[key]
-                    setattr(update_model, argv[2], argv[3])
+                    strip_argv3 = argv[3].strip('"')
+                    setattr(update_model, argv[2], strip_argv3)
                     update_model.save()
                     storage.reload()
                     finder_flag = 1

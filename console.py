@@ -11,7 +11,6 @@ from models import storage
 class HBNBCommand(cmd.Cmd):
     """ This the console """
     prompt = "(hbnb) "
-    intro = "Welcome to our HBnB console! Type ? or help for commands"
 
     def do_create(self, arg):
         """

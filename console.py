@@ -11,7 +11,6 @@ from models import storage
 class HBNBCommand(cmd.Cmd):
     """ This the console """
     prompt = "(hbnb) "
-    intro = "Welcome to our HBnB console! Type ? or help for commands"
 
     def do_create(self, arg):
         """
@@ -100,16 +99,19 @@ class HBNBCommand(cmd.Cmd):
                 print("** no instance found **")
 
     def do_quit(self, arg):
-        """ Quit command to exit the program """
+        """ Quit command to exit the program
+        """
         return True
 
     def do_EOF(self, arg):
-        """ End Of File condition to terminate program """
+        """ End Of File condition to terminate program
+        """
         print()
         return True
 
     def emptyline(self, arg):
-        """ Allows prompt to not be repeated constantly """
+        """ Allows prompt to not be repeated constantly
+        """
         if self.lastcmd:
             self.lastcmd = ""
             return self.onecmd("\n")

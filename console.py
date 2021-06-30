@@ -63,20 +63,39 @@ class HBNBCommand(cmd.Cmd):
 
     def do_all(self, arg):
         """ Prints all string representation of all instances """
+        argv = arg.split()
         if not arg:
-            for i in storage.all().values():
-                print (i)
+            for val in storage.all().values():
+                print(val)
+        elif argv[0] in all_classes:
+            for key, value in storage.all().items():
+                if key[0: key.index('.')] == argv[0]:
+                    print(value)
+        else:
+            print("** class doesn't exist **")
 
     def do_update(self, arg):
         """ Updates an instanced based on class name and id """
         key = HBNBCommand.key_validator(arg)
         if key:
-            argv = arg.split()
+            argv = list(arg.split())
             argc = len(argv)
             if argc < 3:
                 print("** attribute name missing **")
             elif argc < 4:
                 print("** value missing **")
+            elif storage.all():
+                finder_flag = None
+                for key in storage.all().keys():
+                    update_model = storage.all()[key]
+                    setattr(update_model, argv[2], argv[3])
+                    update_model.save()
+                    storage.reload()
+                    finder_flag = 1
+                if not finder_flag:
+                    print("** no instance found **")
+            else:
+                print("** no instance found **")
 
     def do_quit(self, arg):
         """ Quit command to exit the program """

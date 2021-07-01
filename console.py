@@ -85,16 +85,12 @@ class HBNBCommand(cmd.Cmd):
             elif argc < 4:
                 print("** value missing **")
             elif storage.all():
-                finder_flag = None
                 for key in storage.all().keys():
                     update_model = storage.all()[key]
                     strip_argv3 = argv[3].strip('"')
                     setattr(update_model, argv[2], strip_argv3)
                     update_model.save()
                     storage.reload()
-                    finder_flag = 1
-                if not finder_flag:
-                    print("** no instance found **")
             else:
                 print("** no instance found **")
 
